@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="com.mendix.widget.native.webviewrevamped.WebViewRevamped"
+        pluginWidget="true"
+        needsEntityContext="true"
+        offlineCapable="true"
+        supportedPlatform="Native"
+        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Web view (Revamped)</name>
+    <description>Display an external web page or load custom HTML</description>
+    <studioProCategory>Display</studioProCategory>
+    <studioCategory>Display</studioCategory>
+    <properties>
+        <propertyGroup caption="Data source">
+            <property key="url" type="textTemplate" required="false">
+                <caption>URL</caption>
+                <description>The URL of the web page that is loaded.</description>
+            </property>
+            <property key="content" type="textTemplate" required="false">
+                <caption>Content</caption>
+                <description>The HTML content to be rendered. This will precede URL</description>
+            </property>
+        </propertyGroup>
+
+        <propertyGroup caption="Events">
+            <propertyGroup caption="Messaging">
+                <property key="onMessageInput" type="attribute" required="false">
+                    <caption>Message attribute</caption>
+                    <description>The attribute where the input message will be stored. This can be used to read the input in the onMessage event.</description>
+                    <attributeTypes>
+                        <attributeType name="String"/>
+                    </attributeTypes>
+                </property>
+                <property key="onMessage" type="action" required="false">
+                    <caption>On message</caption>
+                    <description>Used to communicate from the loaded webpage to the native app trough window.ReactNativeWebView.postMessage([string])</description>
+                </property>
+            </propertyGroup>
+
+            <propertyGroup caption="Navigation">
+                <property key="onNavigationAttribute" type="attribute" required="false">
+                    <caption>Navigation Attribute</caption>
+                    <description/>
+                    <attributeTypes>
+                         <attributeType name="String" />
+                    </attributeTypes>
+                </property>
+                <property key="onNavigationChange" type="action" required="false">
+                    <caption>On navigation change</caption>
+                    <description>Runs when a page opens (before loaded) and is loaded.</description>
+                </property>
+            </propertyGroup>
+
+            <propertyGroup caption="Error">
+                <property key="onErrorAttribute" type="attribute" required="false">
+                    <caption>Error attribute</caption>
+                    <description></description>
+                    <attributeTypes>
+                        <attributeType name="String"/>
+                    </attributeTypes>
+                </property>
+                <property key="onError" type="action" required="false">
+                    <caption>On error</caption>
+                    <description/>
+                </property>
+            </propertyGroup>
+
+            <propertyGroup caption="HTTP Error">
+                <property key="onHTTPErrorAttribute" type="attribute" required="false">
+                    <caption>HTTP Error attribute</caption>
+                    <description></description>
+                    <attributeTypes>
+                        <attributeType name="String"/>
+                    </attributeTypes>
+                </property>
+                <property key="onHTTPError" type="action" required="false">
+                    <caption>On HTTP error</caption>
+                    <description/>
+                </property>
+            </propertyGroup>
+
+        </propertyGroup>
+
+        <propertyGroup caption="Advanced">
+            <property key="userAgent" type="string" required="false">
+                <caption>User agent</caption>
+                <description>A custom user agent string will be included with the request.</description>
+            </property>
+            <property key="openLinksExternally" type="boolean" defaultValue="false">
+                <caption>Open links externally</caption>
+                <description>If true, links embedded in source document will be opened in external browser instead of inside this widget.</description>
+            </property>
+            <property key="exposeWebViewToWindow" type="boolean" defaultValue="false">
+                <caption>Expose to window</caption>
+                <description>You can expose the WebView to the window. It uses the name set in the 'Common' tab.
+
+Make sure that name has no spaces, should be something like 'webView_Revamped_1' and should be unique in the page.
+
+When exposed, it can be accessed in your Javascript Actions through 'window[name]'. This way you can control aspect of the webview.</description>
+            </property>
+        </propertyGroup>
+    </properties>
+</widget>

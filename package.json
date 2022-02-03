@@ -1,0 +1,37 @@
+{
+  "name": "webviewrevamped",
+  "widgetName": "WebViewRevamped",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Display an external web page or load custom HTML",
+  "copyright": "© Mendix Technology BV 2022. All rights reserved.",
+  "author": "Jelte Lagendijk <jelte.lagendijk@mendix.com>",
+  "engines": {
+    "node": ">=12"
+  },
+  "license": "Apache-2.0",
+  "config": {
+    "projectPath": "./tests/testProject/"
+  },
+  "packagePath": "com.mendix.widget.native",
+  "scripts": {
+    "start": "pluggable-widgets-tools start:native",
+    "build": "pluggable-widgets-tools build:native",
+    "lint": "pluggable-widgets-tools lint",
+    "lint:fix": "pluggable-widgets-tools lint:fix",
+    "prerelease": "npm run lint",
+    "release": "pluggable-widgets-tools release:native"
+  },
+  "bugs": {
+    "url": "https://github.com/JelteMX/mendix-native-webview-revamped/issues"
+  },
+  "devDependencies": {
+    "@mendix/pluggable-widgets-tools": "^9.0.0",
+    "@types/big.js": "^6.0.2",
+    "@types/react": "~17.0.1",
+    "@types/react-native": "~0.63.52"
+  },
+  "dependencies": {
+    "react-native-webview": "^11.17.1"
+  }
+}
