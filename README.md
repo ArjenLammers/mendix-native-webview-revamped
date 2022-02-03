@@ -12,7 +12,7 @@ This may or may not be incorporated in the original widget eventually.
 
 ## Differences
 
-- Based on [reavt-native-webview](https://www.npmjs.com/package/react-native-webview) varsion **11.17.1**
+- Based on [reavt-native-webview](https://www.npmjs.com/package/react-native-webview) version **11.17.1**
 - Rewrote in a Functional component, not class.
 - Removed OnLoad (useless, can be replaced by Navigation)
 - Added an option to expose the webview to the page (Experimental, see below)
@@ -41,6 +41,8 @@ On Navigation (see Events tab in the widget) is triggered, which contains a Java
 3. **Javascript Action**
 
 ![jsaction](/assets/js-action.png)
+
+> The code (click to open) might be changed. I noted that the attribute names might not always correspond with the keys in the JSON
 
 <details>
     <summary>JS Action code</summary>
