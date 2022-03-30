@@ -4,7 +4,7 @@
  * @author Mendix UI Content Team
  */
 import { CSSProperties } from "react";
-import { ActionValue, DynamicValue, EditableValue } from "mendix";
+import { ActionValue, DynamicValue, EditableValue, ListValue, ListAttributeValue } from "mendix";
 
 export interface WebViewRevampedProps<Style> {
     name: string;
@@ -22,6 +22,9 @@ export interface WebViewRevampedProps<Style> {
     userAgent: string;
     openLinksExternally: boolean;
     exposeWebViewToWindow: boolean;
+    headers?: ListValue;
+    headerKey?: ListAttributeValue<string>;
+    headerValue?: ListAttributeValue<string>;
 }
 
 export interface WebViewRevampedPreviewProps {
@@ -42,4 +45,7 @@ export interface WebViewRevampedPreviewProps {
     userAgent: string;
     openLinksExternally: boolean;
     exposeWebViewToWindow: boolean;
+    headers: {} | { type: string } | null;
+    headerKey: string;
+    headerValue: string;
 }

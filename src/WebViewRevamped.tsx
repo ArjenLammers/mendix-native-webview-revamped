@@ -33,7 +33,10 @@ export function WebViewRevamped({
     onMessageInput,
     onNavigationChange,
     onNavigationAttribute,
-    exposeWebViewToWindow
+    exposeWebViewToWindow,
+    headers,
+    headerKey,
+    headerValue
 }: Props): ReactElement {
     const styles = useMemo(() => flattenStyles(defaultWebViewStyle, style), [style]);
     const [webViewSet] = useExposeToWindow(name, exposeWebViewToWindow);
@@ -59,7 +62,9 @@ export function WebViewRevamped({
     };
 
     // Show an empty view while url or content are still loading;
-    if ((url && url.status === ValueStatus.Loading) || (content && content.status === ValueStatus.Loading)) {
+    if ((url && url.status === ValueStatus.Loading) || (content && content.status === ValueStatus.Loading) || 
+        headers && headers.status === ValueStatus.Loading
+        ) {
         return <View />;
     }
 
@@ -74,12 +79,20 @@ export function WebViewRevamped({
         );
     }
 
+    const headerObj:any = {};
+    headers?.items?.forEach((h) => {
+        headerObj["" + headerKey?.get(h).value] = headerValue?.get(h).value;
+    });
+
     return (
         <View style={styles.container}>
             <RNWebView
                 testID={name}
                 ref={ref => webViewSet(ref)}
-                source={html ? { html } : { uri: uri! }}
+                source={html ? { html } : { 
+                    uri: uri!,
+                    headers: headerObj
+                }}
                 style={{
                     width: "100%",
                     height: "100%"

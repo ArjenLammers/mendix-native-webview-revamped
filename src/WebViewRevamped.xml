@@ -98,6 +98,24 @@ Make sure that name has no spaces, should be something like 'webView_Revamped_1'
 
 When exposed, it can be accessed in your Javascript Actions through 'window[name]'. This way you can control aspect of the webview.</description>
             </property>
+            <property key="headers" type="datasource" required="false" isList="true">
+                <caption>HTTP headers</caption>
+                <description>This will set the header on the first load, but not on subsequent page navigations.</description>
+            </property>
+            <property key="headerKey" type="attribute" required="false" dataSource="headers">
+                <caption>HTTP header key attribute</caption>
+                <description>This attribute is used to indicate the key for each header.</description>
+                <attributeTypes>
+                    <attributeType name="String" />
+                </attributeTypes>
+            </property>
+            <property key="headerValue" type="attribute" required="false" dataSource="headers">
+                <caption>HTTP header value attribute</caption>
+                <description>This attribute is used to indicate the value for each header.</description>
+                <attributeTypes>
+                    <attributeType name="String" />
+                </attributeTypes>
+            </property>
         </propertyGroup>
     </properties>
 </widget>
